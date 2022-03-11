@@ -1,0 +1,28 @@
+﻿https://json-generator.com/
+
+[
+  '{{repeat(100)}}',
+  {
+    //Id: '{{index()}}',
+    FirstName: '{{firstName()}}',
+    LastName: '{{surname()}}',
+    Age: '{{integer(1, 99)}}',
+    Addresses: [
+      '{{repeat(1,5)}}',
+      {
+        //Id: '{{index()}}',
+        StreetAddress: '{{street()}} {{integer(1, 999)}}',
+        City: '{{city()}}',
+        State: '{{state()}}',
+        ZipCode: '{{integer(0, 10000)}}-{{integer(0, 1000)}}'
+      }
+    ],
+    EmailAddresses: [
+      '{{repeat(1,10)}}',
+      {
+        //Id: '{{index()}}',
+        EmailAddress: '{{email()}}'
+      }
+    ]
+  }
+]

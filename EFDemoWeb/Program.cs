@@ -1,6 +1,16 @@
+using EFDataAccessLibrary.DataAccess;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<PeopleContext>(options =>
+{
+    // Better option is to place useSqlServer in DbContext class in override OnConfiguring Method
+    // to prevent frontend side of the project to know that we are using EF Core
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+});
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
